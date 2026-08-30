@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>C.E.B.M.R.</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#eeeeee;
+    padding:10px;
+}
+
+.site{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    background:#ffffff;
+    border-radius:18px;
+    padding:15px;
+}
+
+
+/* PRINCIPAL */
+
+.principal{
+    width:100%;
+    min-height:260px;
+
+    background:#f7fafc;
+
+    border:2px solid #dddddd;
+
+    border-radius:15px;
+
+    padding:25px 20px;
+
+    text-align:center;
+}
+
+.nome-site{
+    display:block;
+    width:100%;
+
+    margin:0 0 18px 0;
+
+    color:#111111;
+
+    font-size:clamp(28px,4vw,40px);
+
+    font-weight:bold;
+
+    line-height:1.3;
+
+    text-align:center;
+
+    overflow-wrap:break-word;
+}
+
+.descricao{
+    display:block;
+    width:100%;
+
+    margin:0 auto 25px auto;
+
+    color:#333333;
+
+    font-size:clamp(15px,2vw,18px);
+
+    line-height:1.6;
+
+    text-align:center;
+
+    overflow-wrap:break-word;
+}
+
+
+/* BOTÕES */
+
+.botoes{
+    width:100%;
+    text-align:center;
+}
+
+.botao{
+    display:flex;
+
+    width:100%;
+    max-width:320px;
+    height:60px;
+
+    margin:0 auto 12px auto;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.youtube{
+    background:#ff0000;
+}
+
+.youtube:hover{
+    background:#d90000;
+}
+
+.tiktok{
+    background:#111111;
+}
+
+.tiktok:hover{
+    background:#333333;
+}
+
+
+/* PESQUISA */
+
+.pesquisa-codigo{
+    width:100%;
+
+    margin-top:25px;
+
+    background:#ffffff;
+
+    border:2px solid #dddddd;
+
+    border-radius:15px;
+
+    padding:20px;
+}
+
+.pesquisa-codigo h2{
+    margin:0 0 8px;
+
+    color:#111111;
+
+    text-align:center;
+
+    font-size:25px;
+}
+
+.pesquisa-codigo p{
+    margin:0 0 18px;
+
+    color:#666666;
+
+    text-align:center;
+
+    font-size:14px;
+}
+
+.barra-pesquisa{
+    display:flex;
+
+    width:100%;
+
+    gap:10px;
+}
+
+#codigo-input{
+    flex:1;
+
+    min-width:0;
+
+    height:50px;
+
+    padding:0 15px;
+
+    border:2px solid #cccccc;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+}
+
+#codigo-input:focus{
+    border-color:#2563eb;
+}
+
+#pesquisar-btn{
+    height:50px;
+
+    padding:0 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+#pesquisar-btn:hover{
+    background:#1d4ed8;
+}
+
+#resultado-codigo{
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+.resultado-sucesso{
+    display:block!important;
+
+    background:#e7f8ed;
+
+    color:#218838;
+}
+
+.resultado-erro{
+    display:block!important;
+
+    background:#ffe8e8;
+
+    color:#c62828;
+}
+
+
+/* INSTRUÇÕES */
+
+.titulo-instrucoes{
+    width:100%;
+
+    color:#111111;
+
+    font-size:clamp(23px,3vw,28px);
+
+    text-align:center;
+
+    margin:30px 0 20px;
+}
+
+.coluna{
+    width:100%;
+
+    background:#f7fafc;
+
+    border:2px solid #dddddd;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    overflow:hidden;
+}
+
+.titulo-coluna{
+    text-align:center;
+
+    color:#333333;
+
+    font-size:23px;
+
+    margin:0 0 20px;
+}
+
+.instrucoes{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
+    gap:12px;
+}
+
+.passo{
+    width:100%;
+
+    min-width:0;
+
+    background:#ffffff;
+
+    border:2px solid #dddddd;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    min-height:150px;
+
+    overflow-wrap:anywhere;
+}
+
+.numero{
+    display:block;
+
+    color:#2563eb;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+.texto{
+    color:#444444;
+
+    font-size:16px;
+
+    line-height:1.5;
+
+    overflow-wrap:anywhere;
+
+    word-break:break-word;
+}
+
+
+/* CHAT */
+
+.chat{
+    width:100%;
+
+    margin-top:25px;
+
+    background:#f7fafc;
+
+    border:2px solid #dddddd;
+
+    border-radius:15px;
+
+    overflow:hidden;
+}
+
+.chat-header{
+    padding:20px;
+
+    background:#ffffff;
+
+    border-bottom:1px solid #dddddd;
+}
+
+.chat-header h2{
+    margin:0;
+
+    color:#111111;
+
+    font-size:28px;
+
+    text-align:center;
+}
+
+.chat-subtitulo{
+    margin:8px 0 0;
+
+    color:#666666;
+
+    text-align:center;
+
+    font-size:14px;
+}
+
+.nome-area{
+    padding:15px;
+
+    background:#fafafa;
+
+    border-bottom:1px solid #eeeeee;
+}
+
+.nome-area label{
+    display:block;
+
+    color:#333333;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+}
+
+#nome{
+    width:100%;
+
+    height:45px;
+
+    padding:0 13px;
+
+    border:1px solid #cccccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+#chat-box{
+    width:100%;
+
+    height:430px;
+
+    overflow-y:auto;
+
+    padding:18px;
+
+    background:#ffffff;
+}
+
+.mensagem{
+    width:fit-content;
+
+    max-width:85%;
+
+    background:#f1f1f1;
+
+    padding:11px 14px;
+
+    border-radius:10px;
+
+    margin-bottom:13px;
+
+    word-break:break-word;
+}
+
+.mensagem-nome{
+    color:#1565c0;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    margin-bottom:5px;
+}
+
+.mensagem-texto{
+    color:#222222;
+
+    font-size:15px;
+
+    line-height:1.45;
+}
+
+.mensagem-hora{
+    color:#888888;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+.envio{
+    display:flex;
+
+    gap:10px;
+
+    padding:15px;
+
+    background:#ffffff;
+
+    border-top:1px solid #dddddd;
+}
+
+#message-input{
+    flex:1;
+
+    min-width:0;
+
+    height:46px;
+
+    padding:0 14px;
+
+    border:1px solid #cccccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+#send-btn{
+    height:46px;
+
+    padding:0 25px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1976d2;
+
+    color:#ffffff;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+#status{
+    text-align:center;
+
+    padding:9px;
+
+    border-top:1px solid #eeeeee;
+
+    background:#ffffff;
+
+    color:#777777;
+
+    font-size:13px;
+}
+
+
+/* CELULAR */
+
+@media screen and (max-width:600px){
+
+    body{
+        padding:5px;
+    }
+
+    .site{
+        padding:5px;
+    }
+
+    .principal{
+        min-height:0;
+        padding:25px 10px;
+    }
+
+    .botao{
+        max-width:none;
+    }
+
+    .barra-pesquisa{
+        flex-direction:column;
+    }
+
+    #codigo-input{
+        width:100%;
+    }
+
+    #pesquisar-btn{
+        width:100%;
+    }
+
+    .instrucoes{
+        grid-template-columns:1fr;
+    }
+
+    #chat-box{
+        height:60vh;
+        min-height:350px;
+    }
+
+    .envio{
+        gap:7px;
+    }
+
+    #send-btn{
+        padding:0 17px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="site">
+
+
+<section class="principal">
+
+<h1 class="nome-site">
+C.E.B.M.R.
+</h1>
+
+<p class="descricao">
+
+Oi! Esse é meu primeiro site inicializado
+pela CEBMR no jogo Mini World e na escola
+São Gabriel para fugir da muni e fazer
+várias coisas pela escola.
+
+</p>
+
+
+<div class="botoes">
+
+<a
+    class="botao youtube"
+    href="https://m.youtube.com/channel/UCZFm-bHlWQ_IoJ8oDnU0izg"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+Me siga no YouTube
+</a>
+
+<a
+    class="botao tiktok"
+    href="https://www.tiktok.com/@arthurvnof"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+Me siga no TikTok
+</a>
+
+</div>
+
+</section>
+
+
+<section class="pesquisa-codigo">
+
+<h2>
+🔎 Pesquisar código
+</h2>
+
+<p>
+Digite um código para abrir o site correspondente.
+</p>
+
+<div class="barra-pesquisa">
+
+<input
+    type="text"
+    id="codigo-input"
+    placeholder="Digite o código..."
+    autocomplete="off"
+>
+
+<button
+    type="button"
+    id="pesquisar-btn"
+>
+Pesquisar
+</button>
+
+</div>
+
+<div id="resultado-codigo"></div>
+
+</section>
+
+
+<h2 class="titulo-instrucoes">
+📱 Como entrar em contato
+</h2>
+
+
+<section class="coluna">
+
+<h3 class="titulo-coluna">
+Instruções
+</h3>
+
+
+<div class="instrucoes">
+
+
+<div class="passo">
+
+<span class="numero">
+01
+</span>
+
+<p class="texto">
+
+Me mande convite de amizade
+no Mini World.
+
+<br><br>
+
+<strong>Nome:</strong>
+Arthur10ano∞BR[dev]
+
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<span class="numero">
+02
+</span>
+
+<p class="texto">
+
+Me mande convite de amizade
+no Blood Strike.
+
+<br><br>
+
+<strong>Nome:</strong>
+Arthur10ano∞
+
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<span class="numero">
+03
+</span>
+
+<p class="texto">
+
+Me mande convite de amizade
+no Roblox.
+
+<br><br>
+
+<strong>Nome:</strong>
+arthurvn2447
+
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<span class="numero">
+04
+</span>
+
+<p class="texto">
+
+Este site precisa estar no
+<strong>modo site para computador</strong>
+para funcionar.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="chat">
+
+<div class="chat-header">
+
+<h2>
+💬 Chat público
+</h2>
+
+<p class="chat-subtitulo">
+Converse com outras pessoas em tempo real.
+</p>
+
+</div>
+
+
+<div class="nome-area">
+
+<label for="nome">
+Seu nome
+</label>
+
+<input
+    type="text"
+    id="nome"
+    placeholder="Digite seu nome..."
+    maxlength="40"
+>
+
+</div>
+
+
+<div id="chat-box">
+
+<div class="mensagem">
+
+<div class="mensagem-nome">
+C.E.B.M.R.
+</div>
+
+<div class="mensagem-texto">
+Bem-vindo ao chat público!
+</div>
+
+<div class="mensagem-hora">
+Agora
+</div>
+
+</div>
+
+</div>
+
+
+<div class="envio">
+
+<input
+    type="text"
+    id="message-input"
+    placeholder="Digite uma mensagem..."
+    maxlength="300"
+>
+
+<button
+    id="send-btn"
+    type="button"
+>
+Enviar
+</button>
+
+</div>
+
+
+<div id="status">
+Chat local ativo.
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   SISTEMA DOS 4 CÓDIGOS
+========================================================= */
+
+const paginas = {
+
+    "1":"historia.html",
+    "historia":"historia.html",
+    "história":"historia.html",
+
+    "2":"obscuro.html",
+    "vnb4":"obscuro.html",
+
+    "3":"serra-moveis.html",
+    "serra moveis":"serra-moveis.html",
+    "serra móveis":"serra-moveis.html",
+    "serramoveis":"serra-moveis.html",
+
+    "4":"index.html",
+    "cebmr":"index.html",
+    "c.e.b.m.r.":"index.html"
+
+};
+
+
+function pesquisarCodigo(){
+
+    const entrada=document
+        .getElementById("codigo-input")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const resultado=document
+        .getElementById("resultado-codigo");
+
+
+    if(paginas[entrada]){
+
+        resultado.className=
+            "resultado-sucesso";
+
+        resultado.textContent=
+            "Código encontrado! Abrindo...";
+
+
+        setTimeout(function(){
+
+            window.location.href=
+                paginas[entrada];
+
+        },300);
+
+
+    }else{
+
+        resultado.className=
+            "resultado-erro";
+
+        resultado.textContent=
+            "Código não encontrado.";
+
+    }
+
+}
+
+
+document
+    .getElementById("pesquisar-btn")
+    .addEventListener(
+        "click",
+        pesquisarCodigo
+    );
+
+
+document
+    .getElementById("codigo-input")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key==="Enter"){
+
+                pesquisarCodigo();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   CHAT LOCAL
+========================================================= */
+
+const nomeInput=
+    document.getElementById("nome");
+
+const mensagemInput=
+    document.getElementById("message-input");
+
+const enviarBtn=
+    document.getElementById("send-btn");
+
+const chatBox=
+    document.getElementById("chat-box");
+
+
+function enviarMensagem(){
+
+    const nome=
+        nomeInput.value.trim();
+
+    const mensagem=
+        mensagemInput.value.trim();
+
+
+    if(!nome){
+
+        alert("Digite seu nome primeiro.");
+
+        nomeInput.focus();
+
+        return;
+    }
+
+
+    if(!mensagem){
+
+        mensagemInput.focus();
+
+        return;
+    }
+
+
+    const bloco=
+        document.createElement("div");
+
+    bloco.className=
+        "mensagem";
+
+
+    const nomeElemento=
+        document.createElement("div");
+
+    nomeElemento.className=
+        "mensagem-nome";
+
+    nomeElemento.textContent=
+        nome;
+
+
+    const textoElemento=
+        document.createElement("div");
+
+    textoElemento.className=
+        "mensagem-texto";
+
+    textoElemento.textContent=
+        mensagem;
+
+
+    const horaElemento=
+        document.createElement("div");
+
+    horaElemento.className=
+        "mensagem-hora";
+
+
+    const agora=
+        new Date();
+
+
+    horaElemento.textContent=
+        agora.toLocaleTimeString(
+            "pt-BR",
+            {
+                hour:"2-digit",
+                minute:"2-digit"
+            }
+        );
+
+
+    bloco.appendChild(
+        nomeElemento
+    );
+
+    bloco.appendChild(
+        textoElemento
+    );
+
+    bloco.appendChild(
+        horaElemento
+    );
+
+
+    chatBox.appendChild(
+        bloco
+    );
+
+
+    chatBox.scrollTop=
+        chatBox.scrollHeight;
+
+
+    mensagemInput.value="";
+
+    mensagemInput.focus();
+}
+
+
+enviarBtn.addEventListener(
+    "click",
+    enviarMensagem
+);
+
+
+mensagemInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="Enter"){
+
+            enviarMensagem();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
