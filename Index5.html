@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amizade — C.E.B.M.R.</title>
 
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    padding:10px;
+    background:#eeeeee;
+    font-family:Arial,sans-serif;
+}
+
+.site{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    background:white;
+    border-radius:18px;
+    padding:15px;
+}
+
+.pesquisa,.conteudo{
+    background:#f7fafc;
+    border:2px solid #ddd;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+h2{text-align:center}
+
+.barra{
+    display:flex;
+    gap:10px;
+}
+
+#codigo{
+    flex:1;
+    height:50px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    padding:10px;
+    font-size:16px;
+}
+
+button{
+    height:50px;
+    padding:0 25px;
+    border:0;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-weight:bold;
+}
+
+#resultado{
+    text-align:center;
+    margin-top:12px;
+}
+
+h1{
+    text-align:center;
+    color:#2563eb;
+}
+
+p{
+    line-height:1.7;
+    color:#333;
+}
+
+.codigo{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+}
+
+@media(max-width:600px){
+    .barra{flex-direction:column}
+    button{width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+<section class="pesquisa">
+
+<h2>🔎 Pesquisar código</h2>
+
+<div class="barra">
+
+<input
+    id="codigo"
+    placeholder="Digite um código..."
+>
+
+<button onclick="pesquisar()">
+Pesquisar
+</button>
+
+</div>
+
+<div id="resultado"></div>
+
+</section>
+
+<section class="conteudo">
+
+<h1>🤝 Nossa Amizade</h1>
+
+<p>
+Esse é um site para mostrar a amizade que eu, o Mathias e o Benjamin temos.
+</p>
+
+<p>
+A gente é tão amigo que sempre que eu vou na casa dele a gente acaba brincando de alguma coisa.
+</p>
+
+<p>
