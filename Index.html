@@ -1,1 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.E.B.M.R.</title>
 
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    padding:10px;
+    background:#eeeeee;
+    font-family:Arial,sans-serif;
+}
+
+.site{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    background:white;
+    border-radius:18px;
+    padding:15px;
+}
+
+.pesquisa{
+    background:#f7fafc;
+    border:2px solid #dddddd;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.pesquisa h2{
+    text-align:center;
+    margin-top:0;
+}
+
+.barra{
+    display:flex;
+    gap:10px;
+}
+
+#codigo{
+    flex:1;
+    min-width:0;
+    height:50px;
+    border:2px solid #dddddd;
+    border-radius:10px;
+    padding:10px;
+    font-size:16px;
+}
+
+button{
+    height:50px;
+    padding:0 25px;
+    border:0;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#resultado{
+    text-align:center;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+.conteudo{
+    background:#f7fafc;
+    border:2px solid #dddddd;
+    border-radius:15px;
+    padding:25px;
+}
+
+h1{
+    text-align:center;
+    color:#2563eb;
+}
+
+p{
+    color:#333333;
+    line-height:1.7;
+}
+
+.codigos{
+    background:white;
+    border:1px solid #dddddd;
+    border-radius:10px;
+    padding:15px;
+    margin-top:20px;
+}
+
+@media(max-width:600px){
+    .barra{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+<section class="pesquisa">
+
+<h2>🔎 Pesquisar código</h2>
+
+<div class="barra">
+
+<input
+    id="codigo"
+    type="text"
+    placeholder="Digite um código..."
+    autocomplete="off"
+>
+
+<button onclick="pesquisar()">
+Pesquisar
+</button>
+
+</div>
+
+<div id="resultado"></div>
+
+</section>
+
+<section class="conteudo">
+
+<h1>C.E.B.M.R.</h1>
+
+<p>
+Bem-vindo ao site principal da C.E.B.M.R.
+</p>
+
+<div class="codigos">
+
+<h3>🔓 Códigos não secretos</h3>
+
+<p>
+<strong>B/M</strong> — Benjamim/Mathias
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+const paginas = {
+    "cebmr":"index.html",
+    "s/m":"index2.html",
+    "vnb4":"index3.html",
+    "história":"index4.html",
+    "b/m":"index5.html"
+};
+
+function pesquisar(){
+
+    const codigo =
+        document
+        .getElementById("codigo")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const resultado =
+        document.getElementById("resultado");
+
+    if(paginas[codigo]){
+
+        resultado.textContent =
+            "Código encontrado! Abrindo...";
+
+        window.location.href =
+            paginas[codigo];
+
+    }else{
+
+        resultado.textContent =
+            "Código não encontrado.";
+
+    }
+
+}
+
+document
+.getElementById("codigo")
+.addEventListener("keydown",function(event){
+
+    if(event.key === "Enter"){
+        pesquisar();
+    }
+
+});
+
+</script>
+
+</body>
+  </html>
