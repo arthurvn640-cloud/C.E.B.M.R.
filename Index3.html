@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VNB4</title>
 
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    padding:10px;
+    background:#111111;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.site{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    background:#1b1b1b;
+    border-radius:18px;
+    padding:15px;
+}
+
+.pesquisa,.conteudo{
+    background:#242424;
+    border:2px solid #444;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+h2{text-align:center}
+
+.barra{
+    display:flex;
+    gap:10px;
+}
+
+#codigo{
+    flex:1;
+    height:50px;
+    border:2px solid #555;
+    border-radius:10px;
+    padding:10px;
+    font-size:16px;
+}
+
+button{
+    height:50px;
+    padding:0 25px;
+    border:0;
+    border-radius:10px;
+    background:#7c3aed;
+    color:white;
+    font-weight:bold;
+}
+
+#resultado{
+    text-align:center;
+    margin-top:12px;
+}
+
+h1{
+    text-align:center;
+    color:#b48cff;
+}
+
+p{
+    line-height:1.7;
+}
+
+@media(max-width:600px){
+    .barra{flex-direction:column}
+    button{width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+<section class="pesquisa">
+
+<h2>🔎 Pesquisar código</h2>
+
+<div class="barra">
+
+<input
+    id="codigo"
+    placeholder="Digite um código..."
+>
+
+<button onclick="pesquisar()">
+Pesquisar
+</button>
+
+</div>
+
+<div id="resultado"></div>
+
+</section>
+
+<section class="conteudo">
+
+<h1>VNB4</h1>
+
+<p>
+Site 3 da C.E.B.M.R.
+</p>
+
+</section>
+
+</div>
+
+<script>
+
+const paginas = {
+    "cebmr":"index.html",
+    "s/m":"index2.html",
+    "vnb4":"index3.html",
+    "história":"index4.html",
+    "b/m":"index5.html"
+};
+
+function pesquisar(){
+
+    const codigo =
+        document.getElementById("codigo")
+        .value.trim().toLowerCase();
+
+    const resultado =
+        document.getElementById("resultado");
+
+    if(paginas[codigo]){
+
+        resultado.textContent =
+            "Código encontrado! Abrindo...";
+
+        window.location.href =
+            paginas[codigo];
+
+    }else{
+
+        resultado.textContent =
+            "Código não encontrado.";
+
+    }
+
+}
+
+document.getElementById("codigo")
+.addEventListener("keydown",function(event){
+
+    if(event.key==="Enter"){
+        pesquisar();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
